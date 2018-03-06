@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,19 +22,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TlR-fu-POr">
                                 <rect key="frame" x="20" y="40" width="335" height="607"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3uy-PO-ngH" userLabel="Directory">
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3uy-PO-ngH" userLabel="Directory">
                                         <rect key="frame" x="20" y="0.0" width="295" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smd-Rd-qPy">
-                                                <rect key="frame" x="0.0" y="0.0" width="85" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="50"/>
                                                 <state key="normal" title="btn_day" image="icn_day"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlf-au-bKM">
-                                                <rect key="frame" x="105" y="0.0" width="85" height="50"/>
+                                                <rect key="frame" x="101" y="0.0" width="93" height="50"/>
                                                 <state key="normal" title="btn_list" image="icn_list"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeh-9k-FIj">
-                                                <rect key="frame" x="210" y="0.0" width="85" height="50"/>
+                                                <rect key="frame" x="202" y="0.0" width="93" height="50"/>
                                                 <state key="normal" title="btn_cal" image="icn_calendar"/>
                                             </button>
                                         </subviews>
@@ -55,23 +56,43 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Rz-oE-eca" userLabel="Body">
-                                        <rect key="frame" x="47.5" y="100" width="240" height="507"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Rz-oE-eca" userLabel="Body">
+                                        <rect key="frame" x="20" y="100" width="295" height="507"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="krF-QJ-0fz" userLabel="iv_sun">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="253.5"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="usJ-CQ-QqW" userLabel="iv_moon">
-                                                <rect key="frame" x="0.0" y="253.5" width="240" height="253.5"/>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-dN-jxD" userLabel="Day">
+                                                <rect key="frame" x="0.0" y="0.0" width="295" height="243.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="krF-QJ-0fz" userLabel="iv_sun">
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="122"/>
+                                                    </imageView>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iw0-wJ-7jS" userLabel="tbl_day">
+                                                        <rect key="frame" x="0.0" y="122" width="295" height="121.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qlc-e3-Szr" userLabel="Night">
+                                                <rect key="frame" x="0.0" y="263.5" width="295" height="243.5"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="usJ-CQ-QqW" userLabel="iv_moon">
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="122"/>
+                                                    </imageView>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DFA-Um-afe" userLabel="table_night">
+                                                        <rect key="frame" x="0.0" y="122" width="295" height="121.5"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3uy-PO-ngH" secondAttribute="trailing" constant="20" id="KO4-p8-gLn"/>
+                                    <constraint firstItem="3Rz-oE-eca" firstAttribute="leading" secondItem="TlR-fu-POr" secondAttribute="leading" constant="20" id="L2g-Wd-d7b"/>
                                     <constraint firstItem="9S0-5e-dRN" firstAttribute="top" secondItem="3uy-PO-ngH" secondAttribute="bottom" id="jZa-qm-Sok"/>
                                     <constraint firstItem="3uy-PO-ngH" firstAttribute="leading" secondItem="TlR-fu-POr" secondAttribute="leading" constant="20" id="wte-8H-XH3"/>
-                                    <constraint firstItem="3uy-PO-ngH" firstAttribute="top" secondItem="TlR-fu-POr" secondAttribute="top" constant="20" id="ziF-uA-ly3"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Rz-oE-eca" secondAttribute="trailing" constant="20" id="xnV-Lw-ai6"/>
+                                    <constraint firstItem="3uy-PO-ngH" firstAttribute="top" secondItem="TlR-fu-POr" secondAttribute="top" id="ziF-uA-ly3"/>
                                 </constraints>
                             </stackView>
                         </subviews>
